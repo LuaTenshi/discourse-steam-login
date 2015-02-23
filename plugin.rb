@@ -16,7 +16,7 @@ class SteamAuthenticator < ::Auth::Authenticator
 
     data = auth_token[:info]
     raw_info = auth_token["extra"]["raw_info"]
-    name = data["name"]
+    name = data["nickname"]
     steam_uid = auth_token["uid"]
 
     current_info = ::PluginStore.get('steam', "steam_uid_#{steam_uid}")
@@ -44,7 +44,7 @@ class SteamAuthenticator < ::Auth::Authenticator
 
 end
 
-auth_provider title: 'with Steam',
+auth_provider title: 'Sign in with Steam',
     message: 'Sign in via Steam (Make sure pop up blockers are not enabled).',
     frame_width: 960,
     frame_height: 800,
